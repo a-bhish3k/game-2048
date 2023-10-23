@@ -50,6 +50,8 @@ function updateTile(tile, num) {
   }
 }
 
+// arrow keys event
+
 document.addEventListener("keyup", (e) => {
   if (e.code == "ArrowLeft") {
     slideLeft();
@@ -66,6 +68,49 @@ document.addEventListener("keyup", (e) => {
   }
   document.getElementById("gameScore").innerText = score;
 });
+
+// touch event
+
+document
+  .querySelector(".game-wrapper")
+  .addEventListener("touchstart", function (event) {
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
+  });
+
+document.querySelector("div").addEventListener("touchend", function (event) {
+  touchendX = event.changedTouches[0].screenX;
+  touchendY = event.changedTouches[0].screenY;
+  handleGesture();
+});
+
+function handleGesture() {
+  let leftGap = touchstartX - touchendX;
+  let rightGap = touchendX - touchstartX;
+  let upGap = touchstartY - touchendY;
+  let downGap = touchendY - touchstartY;
+
+  if (leftGap > 100) {
+    slideLeft();
+    setTwo();
+  }
+
+  if (rightGap > 100) {
+    slideRight();
+    setTwo();
+  }
+
+  if (upGap > 100) {
+    slideUp();
+    setTwo();
+  }
+
+  if (downGap > 100) {
+    slideDown();
+    setTwo();
+  }
+  document.getElementById("gameScore").innerText = score;
+}
 
 function filterZero(row) {
   return row.filter((num) => num != 0);
