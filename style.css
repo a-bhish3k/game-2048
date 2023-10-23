@@ -215,6 +215,11 @@ body {
   .game-wrapper {
     height: 350px;
     width: 350px;
+    border: 5px solid #bbada0;
+  }
+
+  .game-tiles {
+    border: 5px solid #bbada0;
   }
 }
 

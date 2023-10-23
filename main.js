@@ -78,11 +78,13 @@ document
     touchstartY = event.changedTouches[0].screenY;
   });
 
-document.querySelector("div").addEventListener("touchend", function (event) {
-  touchendX = event.changedTouches[0].screenX;
-  touchendY = event.changedTouches[0].screenY;
-  handleGesture();
-});
+document
+  .querySelector(".game-wrapper")
+  .addEventListener("touchend", function (event) {
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGesture();
+  });
 
 function handleGesture() {
   let leftGap = touchstartX - touchendX;
