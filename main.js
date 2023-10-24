@@ -92,22 +92,22 @@ function handleGesture() {
   let upGap = touchstartY - touchendY;
   let downGap = touchendY - touchstartY;
 
-  if (leftGap > 100) {
+  if (leftGap > 100 && upGap < 100 && downGap < 100) {
     slideLeft();
     setTwo();
   }
 
-  if (rightGap > 100) {
+  if (rightGap > 100 && upGap < 100 && downGap < 100) {
     slideRight();
     setTwo();
   }
 
-  if (upGap > 100) {
+  if (upGap > 100 && leftGap < 100 && rightGap < 100) {
     slideUp();
     setTwo();
   }
 
-  if (downGap > 100) {
+  if (downGap > 100 && leftGap < 100 && rightGap < 100) {
     slideDown();
     setTwo();
   }
